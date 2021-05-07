@@ -1,20 +1,20 @@
-import useStore from '@/helpers/store'
-import dynamic from 'next/dynamic'
-// Step 5 - delete Instructions components
-import Instructions from '@/components/dom/instructions'
+import Link from 'next/link'
 
-// Step 2 - update Box components
-const Box = dynamic(() => import('@/components/canvas/Box'), {
-  ssr: false,
-})
+import { capitalize } from '../helpers/string'
 
-const Page = ({ title }) => {
-  useStore.setState({ title })
+const Page = ({ modules }) => {
   return (
     <>
-      <Box r3f route='/box' />
-      {/* Step 5 - delete Instructions components */}
-      <Instructions />
+      <div className='p-10'>
+        Coderhood
+        {modules.map((module) => (
+          <Link key={module.url} href='/path'>
+            <a>
+              <div className='p-4'>{module.name}</div>
+            </a>
+          </Link>
+        ))}
+      </div>
     </>
   )
 }
@@ -22,9 +22,19 @@ const Page = ({ title }) => {
 export default Page
 
 export async function getStaticProps() {
+  const data = await fetch(`${process.env.REPO_URL}/contents/modulos`)
+  const rawModules = await data.json()
+
+  const modules = rawModules.map((m) => {
+    const [, ...words] = m.name.split('-')
+    const [fistWord, ...others] = words
+    const name = [capitalize(fistWord), ...others].join(' ')
+    const url = m.url
+
+    return { name, url }
+  })
+
   return {
-    props: {
-      title: 'Index',
-    },
+    props: { modules },
   }
 }
