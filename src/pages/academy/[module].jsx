@@ -1,9 +1,9 @@
-import React from 'react'
+import { useState } from 'react'
 import { getPathContent, getUrlContent } from '@/helpers/github'
 import { Lesson } from '@/components'
 
 const Module = ({ module, lessons }) => {
-  const [lesson, setLesson] = React.useState(null)
+  const [lesson, setLesson] = useState()
 
   return (
     <>
