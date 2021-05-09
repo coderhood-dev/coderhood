@@ -1,9 +1,9 @@
 import Link from 'next/link'
+import { getPathContent } from '@/helpers/github'
 
 import { capitalize } from '../helpers/string'
 
 const Page = ({ modules }) => {
-  console.log('modules', modules)
   return (
     <>
       <div className='p-10'>
@@ -11,7 +11,7 @@ const Page = ({ modules }) => {
         {modules.map((module) => (
           <Link key={module.url} href={`/academy/${module.name}`}>
             <a>
-              <div className='p-4'>{module.name}</div>
+              <div className='p-4'>{module.title}</div>
             </a>
           </Link>
         ))}
@@ -23,10 +23,9 @@ const Page = ({ modules }) => {
 export default Page
 
 export async function getStaticProps() {
-  const data = await fetch(`${process.env.REPO_URL}/contents/modulos`)
-  const rawModules = await data.json()
+  const modulesMetadata = await getPathContent('/contents/modulos')
 
-  const modules = rawModules.map((m) => {
+  const modules = modulesMetadata.map((m) => {
     const name = m.name.split(/-(.+)/)[1]
     const words = name.split('-')
     const [fistWord, ...others] = words
