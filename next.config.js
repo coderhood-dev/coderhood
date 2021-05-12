@@ -110,10 +110,6 @@ module.exports = plugins(
               source: '/service-worker.js',
               destination: '/_next/static/service-worker.js',
             },
-            {
-              source: '/academy',
-              destination: 'https://google.com',
-            },
           ]
         },
       },
