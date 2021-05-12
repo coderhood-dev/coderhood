@@ -7,9 +7,11 @@ const headers = {
 const config = { headers }
 
 export const getPathContent = async (path) => {
-  return await fetch(`${process.env.REPO_URL}${path}`).then((r) => r.json())
+  return await fetch(`${process.env.REPO_URL}${path}`, config).then((r) =>
+    r.json()
+  )
 }
 
 export const getUrlContent = async (url) => {
-  return await fetch(url).then((r) => r.json())
+  return await fetch(url, config).then((r) => r.json())
 }
