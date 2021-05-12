@@ -3,7 +3,7 @@
 import { Children } from 'react'
 import dynamic from 'next/dynamic'
 
-import Head from '@/components/head/Head'
+import { Header } from '@/components'
 import Dom from '@/components/layout/_dom'
 import '@/styles/index.css'
 
@@ -19,7 +19,6 @@ if (process.env.NODE_ENV === 'production') {
 function SplitApp({ canvas, noCanvas, dom }) {
   return (
     <>
-      <Head />
       {dom && <Dom dom={dom} />}
       {!noCanvas && <LCanvas>{canvas}</LCanvas>}
     </>
@@ -51,7 +50,10 @@ function MyApp({ Component, pageProps }) {
   return r3fArr.length > 0 || noCanvas ? (
     <SplitApp canvas={r3fArr} dom={compArr} />
   ) : (
-    <Component {...pageProps} />
+    <>
+      <Header />
+      <Component {...pageProps} />
+    </>
   )
 }
 

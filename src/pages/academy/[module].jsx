@@ -7,7 +7,7 @@ const Modules = ({ module, lessons }) => {
 
   return (
     <>
-      <div className='flex h-full bg-red-300' noCanvas>
+      <div className='flex h-full bg-red-300'>
         <div className='w-96 '>
           <h3 onClick={() => useStore.setState({ lesson: null })}>{module}</h3>
           {lessons.map((lesson) => (
