@@ -1,4 +1,3 @@
-import Instructions from '@/components/dom/instructions'
 import useStore from '@/helpers/store'
 import dynamic from 'next/dynamic'
 
@@ -11,7 +10,6 @@ const Page = () => {
   return (
     <>
       <Box r3f route='/' />
-      <Instructions />
     </>
   )
 }
