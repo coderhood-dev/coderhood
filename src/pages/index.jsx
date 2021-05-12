@@ -1,48 +1,31 @@
 import Link from 'next/link'
-import { getPathContent } from '@/helpers/github'
 
-import { capitalize } from '../helpers/string'
-
-const Page = ({ modules }) => {
+const Home = ({ modules }) => {
   return (
     <>
-      <div className='flex flex-col p-10' noCanvas>
-        <h1 className='pb-5 text-xl'>Coderhood</h1>
-        {modules.map((module) => (
-          <Link key={module.url} href={`/academy/${module.name}`}>
-            <a>
-              <div className='p-4'>{module.title}</div>
-            </a>
-          </Link>
-        ))}
-        <h3 className='pt-5'>
-          Estamos trabajando en construir la plataforma para Coderhood y
-          Coderhood Academy, en los próximos días vas a ver muchos cambios por
-          acá.
-        </h3>
+      <div className='h-full'>
+        <section className='flex items-center h-full p-20 pt-0'>
+          <div className='flex flex-col max-w-4xl gap-y-4'>
+            <h1 className='text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600'>
+              Compartimos conocimiento,
+              <br /> Aprendemos juntos
+            </h1>
+            <h3 className='text-gray-600'>
+              Somos una comunidad de personas en tech que aprende y comparte
+              conocimiento. No sabemos todo, el mundo tech es enorme y lleva una
+              vida de aprendizaje, pero mientras vamos aprendiendo creemos que
+              compartido el viaje es mejor. Por eso incentivamos siempre a que
+              una vez se aprenda algo, le que quiera pueda compartirlo y asi
+              crecer juntos.
+              <br />
+              Coderhood es y siempre va a ser gratis, tanto la comunidad, como
+              las clases y cualquiera de sus espacios.
+            </h3>
+          </div>
+        </section>
       </div>
     </>
   )
 }
 
-export default Page
-
-export async function getStaticProps() {
-  const modulesMetadata = await getPathContent('/contents/modulos')
-
-  console.log('modulesMetadata', modulesMetadata)
-
-  const modules = modulesMetadata.map((m) => {
-    const name = m.name.split(/-(.+)/)[1]
-    const words = name.split('-')
-    const [fistWord, ...others] = words
-    const title = [capitalize(fistWord), ...others].join(' ')
-    const url = m.url
-
-    return { name, title, url }
-  })
-
-  return {
-    props: { modules },
-  }
-}
+export default Home
