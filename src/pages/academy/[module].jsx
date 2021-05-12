@@ -32,6 +32,8 @@ const Modules = ({ module, lessons }) => {
 export const getStaticPaths = async () => {
   const modulesMetadata = await getPathContent('/contents/modulos')
 
+  console.log('modulesMetadata in getStaticPaths', modulesMetadata)
+
   const paths = modulesMetadata.map(
     (m) => `/academy/${m.name.split(/-(.+)/)[1]}`
   )
