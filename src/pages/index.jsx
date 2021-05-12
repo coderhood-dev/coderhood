@@ -6,22 +6,15 @@ import { capitalize } from '../helpers/string'
 const Page = ({ modules }) => {
   return (
     <>
-      <div className='flex flex-col p-10'>
+      <div className='flex flex-col p-10' noCanvas>
         <h1 className='pb-5 text-xl'>Coderhood</h1>
-        {/* {modules.map((module) => (
+        {modules.map((module) => (
           <Link key={module.url} href={`/academy/${module.name}`}>
             <a>
               <div className='p-4'>{module.title}</div>
             </a>
           </Link>
-        ))} */}
-        <a
-          className='p-5 mr-auto bg-yellow-500 border-2 border-black rounded-full'
-          href='https://raw.githubusercontent.com/coderhood-dev/academy/main/modulos/0-introducci%C3%B3n/1-como-funciona-el-internet.pdf'
-          download
-        >
-          Descarga el pdf de la primera clase
-        </a>
+        ))}
         <h3 className='pt-5'>
           Estamos trabajando en construir la plataforma para Coderhood y
           Coderhood Academy, en los próximos días vas a ver muchos cambios por

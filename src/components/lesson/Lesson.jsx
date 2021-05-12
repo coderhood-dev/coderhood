@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const Lesson = ({ lesson }) => {
   const { id, mdx, pdf } = lesson
   const title = `Clase ${id}`

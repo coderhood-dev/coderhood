@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router'
-import useStore from '@/helpers/store'
-import { useEffect, Children } from 'react'
+// import { useRouter } from 'next/router'
+// import useStore from '@/helpers/store'
+import { Children } from 'react'
 import Header from '../config'
 import dynamic from 'next/dynamic'
 import Dom from '@/components/layout/_dom'
@@ -27,7 +27,7 @@ function SplitApp({ canvas, noCanvas, dom }) {
 }
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter()
+  // const router = useRouter()
 
   let noCanvas = false
 
@@ -44,9 +44,9 @@ function MyApp({ Component, pageProps }) {
     }
   })
 
-  useEffect(() => {
-    useStore.setState({ router })
-  }, [router])
+  // useEffect(() => {
+  //   useStore.setState({ router })
+  // }, [router])
 
   return r3fArr.length > 0 || noCanvas ? (
     <SplitApp canvas={r3fArr} dom={compArr} />

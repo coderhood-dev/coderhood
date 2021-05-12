@@ -4,6 +4,7 @@ const useStore = create((set) => {
   return {
     router: {},
     dom: null,
+    lesson: null,
   }
 })
 
