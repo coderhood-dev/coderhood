@@ -6,7 +6,11 @@ const DESCRIPTION =
   'La comunidad que impulsa el aprendizaje autodidacta y colaborativo'
 const author = 'Ema Lorenzo'
 
-const Head = ({ title = TITLE, url = URL, description = DESCRIPTION }) => {
+export const Head = ({
+  title = TITLE,
+  url = URL,
+  description = DESCRIPTION,
+}) => {
   return (
     <>
       <NextHead>
@@ -131,5 +135,3 @@ const Head = ({ title = TITLE, url = URL, description = DESCRIPTION }) => {
     </>
   )
 }
-
-export default Head
