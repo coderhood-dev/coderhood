@@ -3,10 +3,19 @@ module.exports = {
   purge: ['./src/pages/**/*.jsx', './src/components/**/*.jsx'], // remove unused styles in production
   darkMode: 'media', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gray: {
+          900: '#141414',
+        },
+      },
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderWidth: ['hover', 'focus'],
+      ringWidth: ['hover', 'active'],
+    },
   },
   plugins: [],
 }
