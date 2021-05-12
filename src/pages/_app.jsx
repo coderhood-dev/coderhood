@@ -1,10 +1,10 @@
 // import { useRouter } from 'next/router'
 // import useStore from '@/helpers/store'
 import { Children } from 'react'
-import Header from '../config'
 import dynamic from 'next/dynamic'
-import Dom from '@/components/layout/_dom'
 
+import Head from '@/components/head/Head'
+import Dom from '@/components/layout/_dom'
 import '@/styles/index.css'
 
 let LCanvas = null
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 function SplitApp({ canvas, noCanvas, dom }) {
   return (
     <>
-      <Header />
+      <Head />
       {dom && <Dom dom={dom} />}
       {!noCanvas && <LCanvas>{canvas}</LCanvas>}
     </>

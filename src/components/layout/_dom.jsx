@@ -1,13 +1,13 @@
 import useStore from '@/helpers/store'
-import Head from 'next/head'
+import NextHead from 'next/head'
 import { useRef } from 'react'
 
-const Header = () => {
+const Head = () => {
   const title = useStore((s) => s.title)
   return (
-    <Head>
+    <NextHead>
       <title>{title}</title>
-    </Head>
+    </NextHead>
   )
 }
 const Dom = ({ dom }) => {
@@ -18,7 +18,7 @@ const Dom = ({ dom }) => {
       className='absolute top-0 left-0 z-10 w-screen h-screen overflow-hidden dom'
       ref={ref}
     >
-      <Header />
+      <Head />
       {dom}
     </div>
   )
