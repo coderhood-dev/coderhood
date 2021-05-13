@@ -5,7 +5,7 @@ export const Lesson = ({ lesson }) => {
   const title = `Clase ${id}`
   return (
     <>
-      <div className='flex flex-col items-center justify-center w-full h-full p-10 bg-gray-200'>
+      <div className='flex flex-col items-center justify-center w-full min-h-screen p-10 rounded-lg'>
         <h1 className='mb-10 text-2xl text-gray-700'>{title}</h1>
         {pdf ? (
           <a
@@ -14,7 +14,7 @@ export const Lesson = ({ lesson }) => {
             download
           >
             <p className='p-4 font-bold text-white'>
-              Descarga el pdf de la clase
+              ⚡️ Descarga el pdf de la clase
             </p>
           </a>
         ) : (

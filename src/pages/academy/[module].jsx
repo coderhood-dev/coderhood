@@ -5,11 +5,10 @@ import { Lesson } from '@/components'
 const Modules = ({ module, lessons }) => {
   const lesson = useStore((state) => state.lesson)
   useStore.setState({ title: module })
-
   return (
     <>
       <div className='flex h-full bg-white'>
-        <div className='w-1/4 py-10'>
+        <div className='w-1/5 py-10'>
           <a className='cursor-pointer'>
             <h3
               className='pb-10 pl-10 pr-4 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-700 to-gray-900'
@@ -18,17 +17,23 @@ const Modules = ({ module, lessons }) => {
               {module}
             </h3>
           </a>
-          {lessons.map((lesson) => (
+          {lessons.map((l) => (
             <a
               className='cursor-pointer'
-              onClick={() => useStore.setState({ lesson })}
-              key={lesson.id}
+              onClick={() => useStore.setState({ lesson: l })}
+              key={l.id}
             >
-              <p className='px-10 py-1 my-1 text-lg text-gray-700 hover:bg-gray-200'>{`Clase ${lesson.id}`}</p>
+              <p
+                className={`px-10 py-1 my-1 text-lg hover:bg-gray-100 ${
+                  lesson && l.id === lesson.id
+                    ? 'text-yellow-500'
+                    : 'text-gray-700'
+                }`}
+              >{`Clase ${l.id}`}</p>
             </a>
           ))}
         </div>
-        <div className='w-3/4 h-full'>
+        <div className='w-4/5 h-full shadow-2xl'>
           {lesson ? (
             <Lesson key={lesson.id} lesson={lesson} />
           ) : (
