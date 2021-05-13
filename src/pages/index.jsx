@@ -4,7 +4,8 @@ const Home = ({ modules }) => {
   return (
     <>
       <div className='min-h-screen'>
-        <section className='flex items-center h-full p-20 pt-0'>
+        {/* hero */}
+        <section className='flex items-center h-screen p-20 pt-0'>
           <div className='flex flex-col max-w-4xl gap-y-4'>
             <h1 className='text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-red-600'>
               Compartimos conocimiento,
