@@ -1,4 +1,3 @@
-import useStore from '@/helpers/store'
 import dynamic from 'next/dynamic'
 
 const Box = dynamic(() => import('@/components/canvas/Box'), {
@@ -6,7 +5,6 @@ const Box = dynamic(() => import('@/components/canvas/Box'), {
 })
 
 const Page = () => {
-  useStore.setState({ title: 'Box' })
   return (
     <>
       <Box r3f route='/' />

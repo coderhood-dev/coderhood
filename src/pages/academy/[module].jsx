@@ -4,6 +4,7 @@ import { Lesson } from '@/components'
 
 const Modules = ({ module, lessons }) => {
   const lesson = useStore((state) => state.lesson)
+  useStore.setState({ title: module })
 
   return (
     <>
