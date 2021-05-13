@@ -40,8 +40,8 @@ export const Header = () => {
                   }}
                 >
                   <Link href='/academy'>
-                    <a className='font-bold'>
-                      <p className='p-4 text-white'>🎓 Academy</p>
+                    <a>
+                      <p className='p-4 font-bold text-white'>🎓 Academy</p>
                     </a>
                   </Link>
                 </motion.li>

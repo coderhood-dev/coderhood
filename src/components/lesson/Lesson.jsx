@@ -5,18 +5,22 @@ export const Lesson = ({ lesson }) => {
   const title = `Clase ${id}`
   return (
     <>
-      <div className='flex flex-col p-10 bg-gray-300 border-b-4 border-black'>
-        <h1 className='pb-5 text-xl'>{title}</h1>
-        {pdf && (
+      <div className='flex flex-col items-center justify-center w-full h-full p-10 bg-gray-200'>
+        <h1 className='mb-10 text-2xl text-gray-700'>{title}</h1>
+        {pdf ? (
           <a
-            className='p-5 mr-auto bg-yellow-500 border-2 border-black rounded-full'
+            className='bg-yellow-500 rounded-full hover:ring-4 ring-yellow-500 ring-opacity-50'
             href={pdf}
             download
           >
-            Descarga el pdf de la clase
+            <p className='p-4 font-bold text-white'>
+              Descarga el pdf de la clase
+            </p>
           </a>
+        ) : (
+          <p className='text-xl text-gray-700'>Próximamente</p>
         )}
-        {mdx && <pre className='pt-10 text-gray-700'>{mdx}</pre>}
+        {/* {mdx && <pre className='pt-10 text-gray-700'>{mdx}</pre>} */}
       </div>
     </>
   )

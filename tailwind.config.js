@@ -1,8 +1,12 @@
 module.exports = {
   // mode: 'jit',
   purge: ['./src/pages/**/*.jsx', './src/components/**/*.jsx'], // remove unused styles in production
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      display: 'Poppins',
+      sans: 'Poppins',
+    },
     extend: {
       colors: {
         gray: {

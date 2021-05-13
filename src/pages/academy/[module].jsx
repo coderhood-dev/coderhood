@@ -8,21 +8,37 @@ const Modules = ({ module, lessons }) => {
 
   return (
     <>
-      <div className='flex h-full bg-red-300'>
-        <div className='w-96 '>
-          <h3 onClick={() => useStore.setState({ lesson: null })}>{module}</h3>
+      <div className='flex h-full bg-white'>
+        <div className='w-1/4 py-10'>
+          <a className='cursor-pointer'>
+            <h3
+              className='pb-10 pl-10 pr-4 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-700 to-gray-900'
+              onClick={() => useStore.setState({ lesson: null })}
+            >
+              {module}
+            </h3>
+          </a>
           {lessons.map((lesson) => (
-            <p
+            <a
+              className='cursor-pointer'
               onClick={() => useStore.setState({ lesson })}
               key={lesson.id}
-            >{`Clase ${lesson.id}`}</p>
+            >
+              <p className='px-10 py-1 my-1 text-lg text-gray-700 hover:bg-gray-200'>{`Clase ${lesson.id}`}</p>
+            </a>
           ))}
         </div>
-        <div className='w-full bg-gray-300'>
+        <div className='w-3/4 h-full'>
           {lesson ? (
             <Lesson key={lesson.id} lesson={lesson} />
           ) : (
-            'Selecciona una leccion para ver su contenido, aca deberiamos cargar el README.mdx'
+            <div className='flex items-center justify-center h-full'>
+              <p className='text-center text-gray-700'>
+                Selecciona una leccion para ver su contenido.
+                <br /> En una futura update aca se va a cargar el README.md del
+                módulo.
+              </p>
+            </div>
           )}
         </div>
       </div>
