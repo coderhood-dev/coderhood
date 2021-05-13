@@ -32,10 +32,11 @@ export const Header = () => {
                   className='bg-yellow-500 rounded-full hover:ring-4 ring-yellow-500 ring-opacity-50'
                   initial={{ x: 200 }}
                   animate={{ x: 0 }}
-                  exit={{ x: 200 }}
+                  exit={{ x: 200, transition: { delay: 0.2, duration: 0.7 } }}
                   transition={{
                     duration: 1,
                     delay: 0.5,
+                    type: 'spring',
                   }}
                 >
                   <Link href='/academy'>

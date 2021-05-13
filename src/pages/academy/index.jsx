@@ -10,14 +10,14 @@ const listVariants = {
   animate: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: 0.1,
     },
   },
 }
 
 const itemVariants = {
-  initial: { x: -100, opacity: 0 },
-  animate: { x: 0, opacity: 1 },
+  initial: { x: -50, opacity: 0 },
+  animate: { x: 0.5, opacity: 1 },
 }
 
 const Academy = ({ modules }) => {
